@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ProStagesController!{% endblock %}
+
+{% block contenu %}
+
+    <h1> {{ message }} </h1>
+
+<ul>
+    <li>
+        <a href= "{{path('formations')}}"> Voir les formations </a>
+    </li>
+    <li>
+    <a href= "{{path('entreprises')}}"> Voir les entreprises </a>
+    </li>
+    <li>
+    <a href= "{{path('stages',{id:125})}}"> Voir le stage </a>
+    </li>
+</ul>
+
+
+
+{% endblock %}

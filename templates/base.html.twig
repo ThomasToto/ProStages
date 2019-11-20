@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>{% block title %}ProStages{% endblock %}</title>
+        {% block stylesheets %}{% endblock %}
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+    </head>
+    <body>
+        {% block slider %}
+        <h1>---slider---</h1>
+        {% endblock %}
+
+        {% block menu %}---menu---{% endblock %}
+
+        {% block contenu %}{% endblock %}
+
+        {% block footer %}---footer---{% endblock %}
+
+        {% block javascripts %}{% endblock %}
+    </body>
+</html>

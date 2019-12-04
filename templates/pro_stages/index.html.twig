@@ -2,10 +2,12 @@
 
 {% block title %}Hello ProStagesController!{% endblock %}
 
-{% block contenu %}
+{% block titrePage %}
 
     <h1> {{ message }} </h1>
+{% endblock %}
 
+{% block contenuPage %}
 <ul>
     <li>
         <a href= "{{path('formations')}}"> Voir les formations </a>

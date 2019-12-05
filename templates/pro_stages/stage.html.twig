@@ -1,9 +1,61 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello ProStagesController!{% endblock %}
+
 
 {% block contenu %}
+<div class="row">
+	<div class="col-md-12">
+		<div class="card">
 
-    <h1> {{ message }} {{ id }} </h1>
+			{% block titrePage %}
+			<h5 class="card-header">
+			Stages 
+			</h5>
+			{% endblock %}
 
+			
+			{% block contenuPage %}
+				<div class="card" style="width: 117rem;">
+                    <div class="card-header">
+                     Informations sur l'entreprise
+                    </div>
+                    <ul class="list-group list-group-flush">
+
+                        <li class="list-group-item">
+                        <ul>
+                        <li>Nom Entreprise : Safran</li>
+                        <li>Activité : Aéronautique</li>
+                        <li>Adresse : 17 route du chantier, 64000 BAYONNE</li>
+                        <li>SiteWeb : https://Safran.fr</li>
+                        </ul>
+                        </li>
+
+                        <div class="card-header">
+                        Informations sur le stage
+                        </div>
+
+                        <li class="list-group-item">
+                        <ul>
+                        <li>Titre : Technicien informatique</li>
+                        <li>Description : Vous serez attaché à plusieurs missions tels que ...</li>
+                        <li>Email : recrutement@safran.com</li>
+                        </ul>
+                        </li>
+                        
+                        <div class="card-header">
+                        Formations nécessaires
+                        </div>
+
+                        <li class="list-group-item">
+                        <ul>
+                        <li>Nom : DUT Informatique</li>
+                        </ul>
+                        </li>
+
+                    </ul>
+                </div>
+			{% endblock %}
+		</div>
+	</div>
+</div>
 {% endblock %}

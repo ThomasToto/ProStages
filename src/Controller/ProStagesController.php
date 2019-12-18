@@ -49,6 +49,17 @@ class ProStagesController extends AbstractController
 
         
     }
+
+    /** 
+     * @Route("/listestages/", name="listeStages")
+    */
+    public function PageListeStages()
+    {
+        
+        return $this->render('pro_stages/ListeStages.html.twig', []);
+
+        
+    }
 }
 
 ?>

@@ -33,6 +33,11 @@ class Stage
      */
     private $email;
 
+
+
+
+
+    
     /**
      * @ORM\ManyToMany(targetEntity="App\Entity\formation", inversedBy="stages")
      */

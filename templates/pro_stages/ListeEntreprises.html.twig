@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block contenu %}
+
+<div class="row" style="margin-top:15px:">
+<table class="table">
+            <thead>
+             <tr>
+                <th scope="col"></th>
+                <th scope="col">Nom</th>
+                <th scope="col">Activité</th>
+                <th scope="col">Adresse</th>
+                <th scope="col">SiteWeb</th>
+             </tr>
+            </thead>
+      {% for entrepriseCourante in entreprises %}
+            <tbody>
+             <tr>
+                <th scope="row"></th>
+                <td>{{entrepriseCourante.nom}}</td>
+                <td>{{entrepriseCourante.activite}}</td>
+                <td>{{entrepriseCourante.adresse}}</td>
+                <td>{{entrepriseCourante.siteWeb}}</td>
+             </tr>
+            </tbody>  
+      {% endfor %}
+</table>
+</div>
+
+{% endblock %}

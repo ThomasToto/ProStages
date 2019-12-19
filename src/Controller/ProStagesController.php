@@ -5,6 +5,11 @@ namespace App\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 
+use App\Entity\Stage;
+use App\Entity\Entreprise;
+use App\Entity\Formation;
+
+
 class ProStagesController extends AbstractController
 {
     /** 
@@ -12,30 +17,10 @@ class ProStagesController extends AbstractController
     */
     public function PageAccueil()
     {
-        return $this->render('pro_stages/index.html.twig', [
-            'message' => 'Bienvenue sur la page d accueil de ProStages',
-        ]);
+        
+        return $this->render('pro_stages/index.html.twig',[]);
     }
  
-    /** 
-     * @Route("/entreprises", name="entreprises")
-    */
-    public function PageEntreprise()
-    {
-        return $this->render('pro_stages/index.html.twig', [
-            'message' => 'Cette page affichera la liste des entreprises proposant un stage',
-        ]);
-    }
-
-    /** 
-     * @Route("/formations", name="formations")
-    */
-    public function PageFormation()
-    {
-        return $this->render('pro_stages/index.html.twig', [
-            'message' => 'Cette page affichera la liste des formations de l IUT', 
-        ]);
-    }
 
     /** 
      * @Route("/stages/{id}", name="stages")
@@ -55,11 +40,50 @@ class ProStagesController extends AbstractController
     */
     public function PageListeStages()
     {
-        
-        return $this->render('pro_stages/ListeStages.html.twig', []);
+         // Récupérer le repository de l'entité Stage
+         $repositoryStage = $this->getDoctrine()->getRepository(Stage::class);
 
-        
+         // Récupérer les stages enregistrés en BD
+         $stages = $repositoryStage->findAll();
+ 
+         // Envoyer les stages récupérés à la vue chargée de les afficher
+        return $this->render('pro_stages/ListeStages.html.twig',['stages' => $stages]);
+
     }
+
+    /** 
+     * @Route("/listeEntreprises/", name="listeEntreprises")
+    */
+    public function PageListeEntreprises()
+    {
+         // Récupérer le repository de l'entité Stage
+         $repositoryEntreprises = $this->getDoctrine()->getRepository(Entreprise::class);
+
+         // Récupérer les stages enregistrés en BD
+         $entreprises = $repositoryEntreprises->findAll();
+ 
+         // Envoyer les stages récupérés à la vue chargée de les afficher
+        return $this->render('pro_stages/ListeEntreprises.html.twig',['entreprises' => $entreprises]);
+
+    }
+
+    /** 
+     * @Route("/listeFormations/", name="listeFormations")
+    */
+    public function PageListeFormations()
+    {
+         // Récupérer le repository de l'entité Stage
+         $repositoryFormations = $this->getDoctrine()->getRepository(Formation::class);
+
+         // Récupérer les stages enregistrés en BD
+         $formations = $repositoryFormations->findAll();
+ 
+         // Envoyer les stages récupérés à la vue chargée de les afficher
+        return $this->render('pro_stages/ListeFormations.html.twig',['formations' => $formations]);
+
+    }
+
+
 }
 
 ?>

@@ -84,6 +84,12 @@
 		<li class="nav-item">
 				<a class="nav-link" href="{{path('listeStages')}}">Liste des stages</a>
 		</li>
+		<li class="nav-item">
+				<a class="nav-link" href="{{path('listeEntreprises')}}">Liste des entreprises</a>
+		</li>
+				<li class="nav-item">
+				<a class="nav-link" href="{{path('listeFormations')}}">Liste des formations</a>
+		</li>
 	</ul>
 	<ul class="navbar-nav ml-md-auto">
 		<li class="nav-item active">
@@ -102,7 +108,7 @@
 
 
 {% block contenu %}
-<div class="row">
+<div class="row" >
 	<div class="col-md-12">
 		<div class="card">
 
@@ -110,42 +116,13 @@
 
 			{% block titrePage %}
 			<h5 class="card-header">
-			Derniers stages ajoutés
+			
 			</h5>
 			{% endblock %}
 
 			
 			{% block contenuPage %}
-				<div class="card-deck">
-					<div class="card">
-  						<a href="{{path('stages',{id:1})}}">
-    					<img src="{{asset('/images/image1.jpg')}}" class="card-img-top" alt="...">
-   						<div class="card-body">
-      						<h5 class="card-title">Technicien informatique - Safran</h5>
-      						<p class="card-text"></p>
-      						<p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-   						</div>
-  					</div>
 
-  					<div class="card">
-  						<a href="{{path('stages',{id:2})}}">
-    					<img src="{{asset('/images/image2.jpg')}}" class="card-img-top" alt="...">
-    					<div class="card-body">
-      						<h5 class="card-title">Développeur web - Dassaut</h5>
-      						<p class="card-text"></p>
-      						<p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-    					</div>
-  					</div>
-
-  					<div class="card">
-  						<a href="{{path('stages',{id:3})}}">
-    					<img src="{{asset('/images/image3.jpg')}}" class="card-img-top" alt="...">
-    					<div class="card-body">
-      						<h5 class="card-title">Développeur logiciel - ENGIE</h5>
-      						<p class="card-text"></p>
-      						<p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-    					</div>
-					</div>
 			{% endblock %}
 		</div>
 	</div>

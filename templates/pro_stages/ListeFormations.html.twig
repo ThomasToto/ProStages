@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block contenu %}
+
+<div class="row" style="margin-top:15px:">
+<table class="table">
+            <thead>
+             <tr>
+                <th scope="col"></th>
+                <th scope="col">Nom</th>
+             </tr>
+            </thead>
+      {% for formationCourante in formations %}
+            <tbody>
+             <tr>
+                <th scope="row"></th>
+                <td>{{formationCourante.nom}}</td>
+             </tr>
+            </tbody>  
+      {% endfor %}
+</table>
+</div>
+
+{% endblock %}

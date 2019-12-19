@@ -27,10 +27,13 @@ class ProStagesController extends AbstractController
     */
     public function PageStages($id)
     {
-        
-        return $this->render('pro_stages/stage.html.twig', [
-            'message' => 'Cette page affichera le descriptif du stage ayant pour identifiant : ', 'id' => $id,
-        ]);
+        // Récupérer le repository de l'entité Stage
+        $repositoryStage = $this->getDoctrine()->getRepository(Stage::class);
+
+        // Récupérer les stages enregistrés en BD
+        $stage = $repositoryStage->find($id);
+
+        return $this->render('pro_stages/stage.html.twig', ['stage'=> $stage]);
 
         
     }
@@ -56,13 +59,13 @@ class ProStagesController extends AbstractController
     */
     public function PageListeEntreprises()
     {
-         // Récupérer le repository de l'entité Stage
+         // Récupérer le repository de l'entité Entreprise
          $repositoryEntreprises = $this->getDoctrine()->getRepository(Entreprise::class);
 
-         // Récupérer les stages enregistrés en BD
+         // Récupérer les entreprises enregistrés en BD
          $entreprises = $repositoryEntreprises->findAll();
  
-         // Envoyer les stages récupérés à la vue chargée de les afficher
+         // Envoyer les entreprises récupérés à la vue chargée de les afficher
         return $this->render('pro_stages/ListeEntreprises.html.twig',['entreprises' => $entreprises]);
 
     }
@@ -72,13 +75,13 @@ class ProStagesController extends AbstractController
     */
     public function PageListeFormations()
     {
-         // Récupérer le repository de l'entité Stage
+         // Récupérer le repository de l'entité formation
          $repositoryFormations = $this->getDoctrine()->getRepository(Formation::class);
 
-         // Récupérer les stages enregistrés en BD
+         // Récupérer les stformations enregistrés en BD
          $formations = $repositoryFormations->findAll();
  
-         // Envoyer les stages récupérés à la vue chargée de les afficher
+         // Envoyer les formations récupérés à la vue chargée de les afficher
         return $this->render('pro_stages/ListeFormations.html.twig',['formations' => $formations]);
 
     }

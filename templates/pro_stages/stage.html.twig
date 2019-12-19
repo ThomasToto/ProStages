@@ -9,7 +9,7 @@
 
 			{% block titrePage %}
 			<h5 class="card-header">
-			Stages 
+			Stages : {{stage.titre}}
 			</h5>
 			{% endblock %}
 
@@ -23,10 +23,10 @@
 
                         <li class="list-group-item">
                         <ul>
-                        <li>Nom Entreprise : Safran</li>
-                        <li>Activité : Aéronautique</li>
-                        <li>Adresse : 17 route du chantier, 64000 BAYONNE</li>
-                        <li>SiteWeb : https://Safran.fr</li>
+                        <li>Nom Entreprise : {{stage.entreprises.nom}}</li>
+                        <li>Activité : {{stage.entreprises.activite}}</li>
+                        <li>Adresse : {{stage.entreprises.adresse}}</li>
+                        <li>SiteWeb : {{stage.entreprises.SiteWeb}}</li>
                         </ul>
                         </li>
 
@@ -36,9 +36,9 @@
 
                         <li class="list-group-item">
                         <ul>
-                        <li>Titre : Technicien informatique</li>
-                        <li>Description : Vous serez attaché à plusieurs missions tels que ...</li>
-                        <li>Email : recrutement@safran.com</li>
+                        <li>Titre : {{stage.titre}}</li>
+                        <li>Description : {{stage.Description}}</li>
+                        <li>Email : {{stage.Email}}</li>
                         </ul>
                         </li>
                         
@@ -48,7 +48,11 @@
 
                         <li class="list-group-item">
                         <ul>
-                        <li>Nom : DUT Informatique</li>
+                        <li>Nom : 
+                        {% for formationCourante in stage.formation %}
+                        {{formationCourante.nom}}
+                        {% endfor %}
+                        </li>
                         </ul>
                         </li>
 

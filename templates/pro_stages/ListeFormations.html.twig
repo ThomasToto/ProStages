@@ -8,6 +8,8 @@
              <tr>
                 <th scope="col"></th>
                 <th scope="col">Nom</th>
+                <th scope="col">Liens</th>
+                
              </tr>
             </thead>
       {% for formationCourante in formations %}
@@ -15,6 +17,7 @@
              <tr>
                 <th scope="row"></th>
                 <td>{{formationCourante.nom}}</td>
+                <td><a href="{{path('listeStages_tri',{typeRecherche:'formation',id:formationCourante.id})}}" class="btn btn-primary">Voir les stages de la formation</a></td>
              </tr>
             </tbody>  
       {% endfor %}

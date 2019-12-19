@@ -83,7 +83,29 @@ class ProStagesController extends AbstractController
  
          // Envoyer les formations récupérés à la vue chargée de les afficher
         return $this->render('pro_stages/ListeFormations.html.twig',['formations' => $formations]);
+    }
 
+
+     /**
+     * @Route("tri/{typeRecherche}/{id}", name="listeStages_tri")
+     */
+    public function listeStages_tri($typeRecherche,$id)
+    {
+        if ($typeRecherche == "formation") {
+            // Récupérer le repository de l'entité Stage
+            $repositoryFormation = $this->getDoctrine()->getRepository(Formation::class);
+            // Récupérer les stages enregistrés en BD
+            $stages = $repositoryFormation->find($id)->getStages();
+        }
+        elseif ($typeRecherche == "entreprise"){
+            // Récupérer le repository de l'entité Entreprise
+            $repositoryEntreprise = $this->getDoctrine()->getRepository(Entreprise::class);
+            // Récupérer les stages enregistrés en BD
+            $stages = $repositoryEntreprise->find($id)->getStages();
+        }
+        
+        // Envoyer les données récupérées à la vue chargée de les afficher
+        return $this->render('pro_stages/ListeStages.html.twig',['stages' => $stages]);
     }
 
 

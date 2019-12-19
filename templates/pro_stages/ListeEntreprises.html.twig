@@ -11,6 +11,8 @@
                 <th scope="col">Activité</th>
                 <th scope="col">Adresse</th>
                 <th scope="col">SiteWeb</th>
+                <th scope="col">Liens</th>
+
              </tr>
             </thead>
       {% for entrepriseCourante in entreprises %}
@@ -21,6 +23,8 @@
                 <td>{{entrepriseCourante.activite}}</td>
                 <td>{{entrepriseCourante.adresse}}</td>
                 <td>{{entrepriseCourante.siteWeb}}</td>
+                <td><a href="{{path('listeStages_tri',{typeRecherche:'entreprise',id:entrepriseCourante.id})}}" class="btn btn-primary">Voir les stages de l'entreprise</a></td>
+
              </tr>
             </tbody>  
       {% endfor %}

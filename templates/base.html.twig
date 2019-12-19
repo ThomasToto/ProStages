@@ -94,7 +94,6 @@
 	<ul class="navbar-nav ml-md-auto">
 		<li class="nav-item active">
 				<a class="nav-link" href="#"> Déconnexion 
-				<i class="icon-user"></i> 
 				<span class="sr-only">(current)</span></a>
 		</li>
 	</ul>
@@ -116,13 +115,27 @@
 
 			{% block titrePage %}
 			<h5 class="card-header">
-			
+			Derniers stages ajoutés
 			</h5>
 			{% endblock %}
 
 			
 			{% block contenuPage %}
-
+			<div class="card-group">
+			{% for stageCourant in stages %}
+				{% if loop.index < 4 %}
+					<div class="card" style="width: 18rem;">
+  						<img src="{{asset('/images/image3.jpg')}}" class="card-img-top" alt="...">
+ 						<div class="card-body">
+    						<h5 class="card-title">{{stageCourant.titre}}</h5>
+    						<p class="card-text">{{stageCourant.description}}</p>
+    						<a href="{{path('stages',{id:stageCourant.id})}}" class="btn btn-primary">Voir le stage</a>
+  						</div>
+					</div>
+				{% endif %}
+			{% endfor %}
+			</div>
+			
 			{% endblock %}
 		</div>
 	</div>

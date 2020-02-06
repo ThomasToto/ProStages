@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    ProStages - {{ nomEntreprise }}
+{% endblock %}
+
+{% block stylesheet %}
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+{% endblock %}
+
+{% block intitule %}
+<center><h3>ProStages</h3></center>
+{% endblock %}
+
+{% block contenu %}
+	<div class="col-12">
+		<div class="panel panel-default">
+			<div class="panel-heading"><h4>Liste des stages actuellement proposés par l'entreprise {{ nomEntreprise }}</h4></div>
+			<ul class="list-group">
+				{% for stageCourant in stages %}
+					<li class="list-group-item">
+						<a href="{{ path('stages', {'id':stageCourant.id}) }}">{{stageCourant.titre}}</a>
+					</li>
+				{% endfor %}
+			</ul>
+		</div>
+	</div>  
+{% endblock %}
+
+{% block javascripts %}
+{% endblock %}

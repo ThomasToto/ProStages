@@ -17,7 +17,7 @@
              <tr>
                 <th scope="row"></th>
                 <td>{{formationCourante.nom}}</td>
-                <td><a href="{{path('listeStages_tri',{typeRecherche:'formation',id:formationCourante.id})}}" class="btn btn-primary">Voir les stages de la formation</a></td>
+                <td><a href="{{path('ProStages_Stages_Par_Nom_Formation', {'nomFormation':formationCourante.nom})}}" class="btn btn-primary">Voir les stages de la formation</a></td>
              </tr>
             </tbody>  
       {% endfor %}

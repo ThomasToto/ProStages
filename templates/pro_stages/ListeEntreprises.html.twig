@@ -23,12 +23,15 @@
                 <td>{{entrepriseCourante.activite}}</td>
                 <td>{{entrepriseCourante.adresse}}</td>
                 <td>{{entrepriseCourante.siteWeb}}</td>
-                <td><a href="{{path('ProStages_Stages_Par_Nom_Entreprise',{'nomEntreprise':entrepriseCourante.nom})}}" class="btn btn-primary">Voir les stages de l'entreprise</a></td>
+                <td><a href="{{path('ProStages_Stages_Par_Nom_Entreprise',{'nomEntreprise':entrepriseCourante.nom})}}" class="btn btn-primary">Voir les stages de l'entreprise</a>
+                    <a href="/modifier-entreprise/{{entrepriseCourante.id}}" class="btn btn-primary">Modifier l'entreprise</a>
+                </td>
 
              </tr>
             </tbody>  
       {% endfor %}
 </table>
 </div>
+                <button class="btn btn-primary"><a href="/creer-entreprise"><font color="white" >Créer une entreprise </font></a></button>
 
 {% endblock %}

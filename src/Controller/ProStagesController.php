@@ -8,6 +8,7 @@ use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\Stage;
 use App\Entity\Entreprise;
 use App\Entity\Formation;
+use Symfony\Component\HttpFoundation\Request;
 
 
 class ProStagesController extends AbstractController
@@ -148,6 +149,64 @@ class ProStagesController extends AbstractController
         return $this->render('pro_stages/parFormation.html.twig',['stages' => $stages,
                                                            'nomFormation' => $nomFormation]);
     }
+
+
+    /**
+     * @Route("/creer-entreprise", name="nouvelle_entreprise")
+     */
+    public function new(Request $request)
+    {
+        $entreprise = new Entreprise();
+       
+        $form = $this -> createFormBuilder($entreprise)
+                      -> add('nom')
+                      -> add('activite')
+                      -> add('adresse')
+                      -> add('siteweb')
+                      ->getForm();
+        
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted()) {
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($entreprise);
+            $entityManager->flush();
+
+            return $this->redirectToRoute('accueil');
+       }
+
+        return $this->render('pro_stages/creationEntreprise.html.twig', [
+            'form' => $form->createView(),
+        ]);
+    }
+
+    /**
+     * @Route("/modifier-entreprise/{id}", name="modifier_entreprise")
+     */
+    public function edit(Request $request, Entreprise $entreprise)
+    {
+        $form = $this -> createFormBuilder($entreprise)
+                      -> add('nom')
+                      -> add('activite')
+                      -> add('adresse')
+                      -> add('siteweb')
+                      ->getForm();
+        
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted()) {
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($entreprise);
+            $entityManager->flush();
+
+            return $this->redirectToRoute('accueil');
+       }
+
+        return $this->render('pro_stages/modifierEntreprise.html.twig', [
+            'form' => $form->createView(),
+        ]);
+    }
+
 
 }
 

@@ -181,12 +181,7 @@ class ProStagesController extends AbstractController
      */
     public function edit(Request $request, Entreprise $entreprise)
     {
-        $form = $this -> createFormBuilder($entreprise)
-                      -> add('nom')
-                      -> add('activite')
-                      -> add('adresse')
-                      -> add('siteweb')
-                      ->getForm();
+        $form = $this->CreateForm(EntrepriseType::class,$entreprise);
         
         $form->handleRequest($request);
 

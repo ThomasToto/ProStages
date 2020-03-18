@@ -6,6 +6,9 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
+use App\Entity\User;
+use Symfony\Component\HttpFoundation\Request;
+use App\Form\UserType;
 
 class SecurityController extends AbstractController
 {
@@ -31,5 +34,32 @@ class SecurityController extends AbstractController
      */
     public function logout()
     {
+    }
+
+    /**
+     * @Route("/inscription", name="app_inscription")
+     */
+    public function inscription(Request $request)
+    {
+        //Créer un utilisateur vide
+        $utilisateur = new User();
+       
+        //Création du formulaire permettant de saisir un utilisateur
+        $form = $this -> createForm(UserType::class,$utilisateur);
+        
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            //$entityManager = $this->getDoctrine()->getManager();
+            //$entityManager->persist($stage);
+            //$entityManager->flush();
+
+            return $this->redirectToRoute('accueil');
+       }
+
+       //Affiche la page présentant le formulaire d'inscription
+        return $this->render('security/inscription.html.twig', [
+            'form' => $form->createView(),
+        ]);
     }
 }

@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+
+{% block contenu %}
+    <h1>Stage</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ stage.id }}</td>
+            </tr>
+            <tr>
+                <th>Titre</th>
+                <td>{{ stage.titre }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ stage.description }}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>{{ stage.email }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('stage_index') }}">Retour à la liste des stages</a>
+
+    <a href="{{ path('stage_edit', {'id': stage.id}) }}">Modifier</a>
+
+    {{ include('stage/_delete_form.html.twig') }}
+{% endblock %}

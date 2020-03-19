@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+
+
+{% block contenu %}
+{% block titrePage %}
+    <h1>Tous les stages</h1>
+{% endblock %}
+
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Titre</th>
+                <th>Description</th>
+                <th>Email</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for stage in stages %}
+            <tr>
+                <td>{{ stage.id }}</td>
+                <td>{{ stage.titre }}</td>
+                <td>{{ stage.description }}</td>
+                <td>{{ stage.email }}</td>
+                <td>
+                    <a href="{{ path('stage_show', {'id': stage.id}) }}">Consulter</a>
+                    <a href="{{ path('stage_edit', {'id': stage.id}) }}">Modifier</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">Aucun stage trouvé</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('stage_new') }}">Créer un nouveau stage</a>
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block contenu %}
+{% block titrePage %}
+    <h1>Modifier une nouvelle entreprise</h1>
+{% endblock %}
+
+    {{ include('entreprise/_form.html.twig', {'button_label': 'Modifier'}) }}
+
+    <a href="{{ path('entreprise_index') }}">Retour à la liste des entreprises</a>
+
+    {{ include('entreprise/_delete_form.html.twig') }}
+{% endblock %}

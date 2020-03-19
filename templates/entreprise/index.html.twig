@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block contenu %}
+{% block titrePage %}
+    <h1>Toutes les entreprises</h1>
+{% endblock %}
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Activite</th>
+                <th>Adresse</th>
+                <th>Siteweb</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entreprise in entreprises %}
+            <tr>
+                <td>{{ entreprise.id }}</td>
+                <td>{{ entreprise.nom }}</td>
+                <td>{{ entreprise.activite }}</td>
+                <td>{{ entreprise.adresse }}</td>
+                <td>{{ entreprise.siteweb }}</td>
+                <td>
+                    <a href="{{ path('entreprise_show', {'id': entreprise.id}) }}">Consulter</a>
+                    <a href="{{ path('entreprise_edit', {'id': entreprise.id}) }}">Modifier</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">Aucune entreprise trouvée</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('entreprise_new') }}">Créer une nouvelle entreprise</a>
+{% endblock %}

@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block contenu %}
+{% block titrePage %}
+    <h1>Créer un nouveau stage</h1>
+{% endblock %}
+
+    {{ include('stage/_form.html.twig') }}
+
+    <a href="{{ path('stage_index') }}">Retour à la liste des stages</a>
+{% endblock %}

@@ -13,7 +13,7 @@ class FormationType extends AbstractType
     {
         $builder
             ->add('nom')
-            ->add('stages')
+            ->add('stages',['required'=>'true'])
         ;
     }
 

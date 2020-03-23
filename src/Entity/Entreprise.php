@@ -20,7 +20,7 @@ class Entreprise
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=false)
      * @Assert\NotBlank(message="Le champ ne peut pas être vide")
      * @Assert\Length(
      * min=4,
@@ -30,13 +30,13 @@ class Entreprise
     private $nom;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=false)
        * @Assert\NotBlank(message="Le champ ne peut pas être vide")
      */
     private $activite;
 
     /**
-     * @ORM\Column(type="string", length=300)
+     * @ORM\Column(type="string", length=300, nullable=false)
      * @Assert\NotBlank(message="Le champ ne peut pas être vide")
      * @Assert\Regex(pattern="#^[1-9][0-9]{0,2}#", message="Le numéro de rue est incorrect")
 	 * @Assert\Regex(pattern="#[rue|avenue|boulevard|impasse|allée|place|route|voie]#",message="Le type de rue est incorrect")
@@ -45,7 +45,7 @@ class Entreprise
     private $adresse;
 
     /**
-     * @ORM\Column(type="string", length=300)
+     * @ORM\Column(type="string", length=300, nullable=false)
      * @Assert\Url(message="Ceci n'est pas une URL")
        * @Assert\NotBlank(message="Le champ ne peut pas être vide")
      */

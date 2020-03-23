@@ -58,7 +58,9 @@
 
                     </ul>
                 </div>
+                {% if is_granted('ROLE_ADMIN') %}
                 <a href="/stage/{{stage.id}}/edit" class="btn btn-primary">Modifier le stage</a>
+                {% endif %}
 			{% endblock %}
 		</div>
 	</div>
